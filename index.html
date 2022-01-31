@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <base target="_top">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Sarabun' rel='stylesheet' type='text/css'>
+    
+<style type='text/css'>
+
+@font-face {
+  font-family: 'Sarabun';
+}
+
+body { font-family: 'Sarabun' !important; }
+
+::placeholder {
+  color: peachpuff;
+  font-size: 15px;
+  text-align: center; 
+}
+
+</style>
+
+  </head>
+  <body>
+<div class="container">
+  <!-- Content here -->
+    <div class="row">
+    <div class="col-2">
+    <!-- 1 of 3 -->
+    </div>
+    <div class="col-8">
+          <div class="alert alert-primary"  role="alert"><center>
+        <B><font size=4>ระบบตรวจสอบสิทธิ์เลือกตั้งคณะกรรมการสภานักเรียน โรงเรียนสอาดเผดิมวิทยา <br> ปีการศึกษา 2564</font></B>
+        </center></div>
+          <div class="alert alert-success" role="alert">
+              <h6 class="font-weight-bold">
+          วิธีการตรวจสอบสิทธิ์เลือกตั้ง</h6>
+              <p>1. ให้พิมพ์เลขประจำตัว 5 หลัก ลงในช่องค้นหา จากนั้นรอสักครู่ ระบบจะแสดงข้อมูลโดยอัตโนมัติ 
+            <br>2. สอบถามข้อมูลเพิ่มเติมได้ที่ ศูนย์ประสานงานการเลือกตั้งคณะกรรมการสภานักเรียน </p>
+          </div>    
+    </div>
+    <div class="col-2">
+    <!-- 10 of 12 -->
+    </div>
+    </div>
+  
+    <div class="container">
+    <div class="row">
+    <div class="col-2">
+          <!-- 1 of 3 -->
+    </div>
+    <div class="col-8">
+          <div class="col-md-auto">
+              <center><span class="badge badge-primary">พิมพ์เลขประจำตัวนักเรียนลงในช่องด้านล่างนี้</span></center><br>
+          <input class="form-control form-control-lg" type="text" id="idStudent" placeholder="พิมพ์เลขประจำตัวนักเรียนที่นี่">
+          </div>
+	  </div>
+    <div class="col-2">
+    <!-- 10 of 12 -->
+    </div>
+    </div>
+    </div>
+    
+    <div class="container">
+    <div class="row">
+    <div class="col-md">
+    <!-- One of three columns -->
+    </div>
+    <div class="col-md">
+    
+    <hr>
+      
+    </div>
+    <div class="col-md">
+    <!-- One of three columns -->
+    </div>
+    </div>
+    </div>
+    
+    <!-- Result Header Start -->
+    <div class="container">
+    <div class="row">
+    <div class="col">
+    <!-- 1 of 3 -->
+    </div>
+    <div class="col-5">
+    <center><svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
+</svg>&nbsp;&nbsp;<span class="badge badge-info">ผลการค้นหาข้อมูล</span></center>
+    </div>
+    <!-- Result Header End -->
+    
+    <br>
+    
+    <div class="col">
+    <!-- 3 of 3 -->
+    </div>
+    </div>
+    
+    <!-- Result Start -->
+    <div class="row">
+    <div class="col">
+    <!-- 1 of 3 -->
+    </div>
+    <div class="col-md-auto">
+    
+    <br>
+    
+    <div class="container">
+    <div id="search">
+    <textarea cols="80" rows="15" style="border:none;resize:none;" id="search" readonly></textarea>
+    </div>
+    </div>
+    <!-- Result End -->
+    
+    </div>
+    <div class="col">
+    <!-- 3 of 3 -->
+
+    </div>
+    </div>
+    </div>
+    
+</div>
+
+<br>
+
+<hr>
+
+<!-- Footer Start -->
+<footer class="footer navbar-fixed-bottom">
+  <center><p>พัฒนาโดย นายสุรศักดิ์ ทิพย์พิมล<br>
+  </p></center>
+</footer>
+<!-- Footer End -->
+
+<script>
+    document.getElementById("idStudent").addEventListener("input", findCode);
+    function findCode() {
+    var code = document.getElementById("idStudent").value; 
+    if(code .length === 5){
+    google.script.run.withSuccessHandler(updateData).getCode(code);
+    }
+}
+function updateData(data) {
+    document.getElementById("search").innerHTML = data;
+    M.updateTexfields();
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body> 
+</html>
+
